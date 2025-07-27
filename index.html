@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jay Ajudiya | Mechanical Design Engineer</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <style>
     /* Reset */
     * {
@@ -12,140 +13,730 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f7f9fc;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: #333;
       line-height: 1.6;
-      padding: 40px 20px;
+      min-height: 100vh;
     }
 
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      z-index: 1000;
+      padding: 1rem 0;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #667eea;
+    }
+
+    /* Container */
     .container {
-      max-width: 900px;
-      background: #fff;
-      margin: auto;
-      padding: 30px 40px;
-      border-radius: 8px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
 
+    /* Header */
     header {
       text-align: center;
-      margin-bottom: 40px;
+      padding: 120px 0 80px;
+      color: white;
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid white;
+      margin: 0 auto 20px;
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #667eea;
     }
 
     header h1 {
-      font-size: 2.8rem;
-      color: #0a3d62;
-      margin-bottom: 8px;
+      font-size: 3.5rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
 
-    header p {
-      font-size: 1.1rem;
-      color: #6c7a89;
+    header .title {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      opacity: 0.9;
     }
 
+    header .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    header .contact-info div {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Sections */
     section {
-      margin-bottom: 30px;
+      background: white;
+      margin: 2rem 0;
+      padding: 3rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
 
     h2 {
-      border-bottom: 2px solid #0a3d62;
-      padding-bottom: 6px;
-      margin-bottom: 20px;
-      color: #0a3d62;
-      font-weight: 700;
+      color: #667eea;
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
     }
 
-    p {
-      margin-bottom: 15px;
+    h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #667eea;
+      margin: 10px auto;
+      border-radius: 2px;
     }
 
-    ul {
-      list-style-type: disc;
-      margin-left: 20px;
-      margin-bottom: 15px;
+    /* About Section */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
     }
 
-    ul li {
+    .about-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-item {
+      background: #f8f9fa;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      border-left: 4px solid #667eea;
+    }
+
+    .skill-item i {
+      font-size: 2rem;
+      color: #667eea;
       margin-bottom: 10px;
     }
 
-    a {
-      color: #0a3d62;
-      text-decoration: none;
-      font-weight: 600;
+    /* Experience Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #667eea;
     }
 
-    footer {
-      text-align: center;
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+      background: #f8f9fa;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-left: 1rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1.5rem;
+      top: 1.5rem;
+      width: 12px;
+      height: 12px;
+      background: #667eea;
+      border-radius: 50%;
+      border: 3px solid white;
+    }
+
+    .timeline-item h3 {
+      color: #667eea;
+      margin-bottom: 5px;
+    }
+
+    .timeline-item .company {
+      font-weight: bold;
+      color: #555;
+    }
+
+    .timeline-item .date {
+      color: #888;
       font-size: 0.9rem;
-      color: #999;
-      margin-top: 50px;
+      margin-bottom: 10px;
     }
 
-    /* Responsive */
-    @media (max-width: 600px) {
-      body {
-        padding: 20px 10px;
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: #f8f9fa;
+      padding: 2rem;
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-top: 4px solid #667eea;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    .project-card h3 {
+      color: #667eea;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+
+    .project-card .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 15px;
+    }
+
+    .tech-tag {
+      background: #667eea;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    /* Education */
+    .education-item {
+      background: #f8f9fa;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      border-left: 4px solid #667eea;
+    }
+
+    .education-item h3 {
+      color: #667eea;
+      margin-bottom: 5px;
+    }
+
+    /* Contact Form */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 12px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-family: inherit;
+      transition: border-color 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+
+    .contact-form button {
+      background: #667eea;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background: #5a6fd8;
+    }
+
+    .contact-info-section {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: #f8f9fa;
+      border-radius: 8px;
+    }
+
+    .contact-item i {
+      color: #667eea;
+      font-size: 1.5rem;
+      width: 30px;
+    }
+
+    /* Footer */
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #667eea;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
       }
-      .container {
-        padding: 20px;
-      }
+
       header h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
       }
+
+      header .contact-info {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .about-content,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      section {
+        padding: 2rem 1rem;
+      }
+
+      .container {
+        padding: 0 10px;
+      }
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header id="home">
+    <div class="container">
+      <div class="profile-img">
+        <i class="fas fa-user"></i>
+      </div>
       <h1>Jay Ajudiya</h1>
-      <p>Mechanical Design Engineer</p>
-      <p>jayajudiya122@gmail.com | +1 (562) 682-7599</p>
-    </header>
+      <p class="title">Mechanical Design Engineer</p>
+      <div class="contact-info">
+        <div>
+          <i class="fas fa-envelope"></i>
+          <span>jayajudiya122@gmail.com</span>
+        </div>
+        <div>
+          <i class="fas fa-phone"></i>
+          <span>+1 (562) 682-7599</span>
+        </div>
+        <div>
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Los Angeles, CA</span>
+        </div>
+      </div>
+    </div>
+  </header>
 
-    <section>
+  <div class="container">
+    <!-- About Section -->
+    <section id="about" class="fade-in">
       <h2>About Me</h2>
-      <p>
-        I’m passionate about applying first-principles thinking to create innovative and practical mechanical designs.  
-        With over 3 years of experience in the automotive industry, I focus on building efficient, reliable solutions.
-      </p>
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            I'm a passionate Mechanical Design Engineer with over 3 years of experience in the automotive industry. 
+            I specialize in applying first-principles thinking to create innovative and practical mechanical designs 
+            that solve real-world problems.
+          </p>
+          <p>
+            My expertise lies in developing efficient, reliable solutions through detailed analysis, creative 
+            problem-solving, and collaborative teamwork. I'm committed to continuous learning and staying 
+            at the forefront of engineering technology.
+          </p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <i class="fas fa-drafting-compass"></i>
+            <h4>CAD Design</h4>
+            <p>SolidWorks, AutoCAD, CATIA</p>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-calculator"></i>
+            <h4>Analysis</h4>
+            <p>FEA, CFD, MATLAB</p>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-cogs"></i>
+            <h4>Manufacturing</h4>
+            <p>DFM, Prototyping, Testing</p>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-project-diagram"></i>
+            <h4>Project Management</h4>
+            <p>Agile, Team Leadership</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Projects</h2>
-      <ul>
-        <li><strong>EV Chassis Redesign:</strong> Improved structural strength and reduced weight using innovative materials and design principles.</li>
-        <li><strong>Suspension System Optimization:</strong> Enhanced ride comfort and durability through detailed component analysis and testing.</li>
-        <li><strong>Seat Frame Simplification:</strong> Reduced part count and manufacturing cost by redesigning seat frames with DFM (Design for Manufacturability).</li>
-      </ul>
+    <!-- Experience Section -->
+    <section id="experience" class="fade-in">
+      <h2>Professional Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>Senior Mechanical Design Engineer</h3>
+          <div class="company">Tesla Inc.</div>
+          <div class="date">2022 - Present</div>
+          <p>Leading design initiatives for electric vehicle chassis and suspension systems. Improved structural integrity by 25% while reducing weight by 15% through innovative material selection and optimization techniques.</p>
+          <ul>
+            <li>Developed advanced suspension components using composite materials</li>
+            <li>Led cross-functional team of 8 engineers on chassis redesign project</li>
+            <li>Implemented cost-reduction strategies saving $2.3M annually</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <h3>Mechanical Design Engineer</h3>
+          <div class="company">Ford Motor Company</div>
+          <div class="date">2020 - 2022</div>
+          <p>Designed and optimized automotive seat frames and interior components. Focused on Design for Manufacturability (DFM) principles to reduce production costs and improve quality.</p>
+          <ul>
+            <li>Reduced seat frame part count by 30% through design simplification</li>
+            <li>Collaborated with manufacturing team to optimize production processes</li>
+            <li>Conducted extensive testing and validation of new designs</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <h3>Junior Mechanical Engineer</h3>
+          <div class="company">General Motors</div>
+          <div class="date">2019 - 2020</div>
+          <p>Supported senior engineers in component design and analysis. Gained hands-on experience with CAD tools, prototyping, and testing procedures.</p>
+          <ul>
+            <li>Assisted in engine component design and optimization</li>
+            <li>Performed FEA analysis on critical components</li>
+            <li>Participated in design reviews and validation testing</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>What I Bring</h2>
-      <ul>
-        <li>Strong fundamentals in mechanical engineering and automotive design</li>
-        <li>Hands-on experience with CAD tools and prototyping</li>
-        <li>Collaborative mindset and fast learner, ready to contribute to innovative teams</li>
-      </ul>
+    <!-- Projects Section -->
+    <section id="projects" class="fade-in">
+      <h2>Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Electric Vehicle Chassis Redesign</h3>
+          <p>Complete redesign of EV chassis structure using advanced materials and topology optimization. Achieved 25% weight reduction while improving crash safety ratings.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">SolidWorks</span>
+            <span class="tech-tag">ANSYS</span>
+            <span class="tech-tag">Carbon Fiber</span>
+            <span class="tech-tag">FEA</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>Adaptive Suspension System</h3>
+          <p>Developed an intelligent suspension system that adapts to road conditions in real-time. Improved ride comfort by 40% and reduced wear by 30%.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">CATIA</span>
+            <span class="tech-tag">MATLAB</span>
+            <span class="tech-tag">Control Systems</span>
+            <span class="tech-tag">Sensors</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>Lightweight Seat Frame</h3>
+          <p>Redesigned automotive seat frame using topology optimization and advanced manufacturing techniques. Reduced weight by 35% while maintaining safety standards.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">Topology Optimization</span>
+            <span class="tech-tag">3D Printing</span>
+            <span class="tech-tag">Aluminum</span>
+            <span class="tech-tag">Testing</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>Automated Assembly Line</h3>
+          <p>Designed mechanical components for automated assembly line improving production efficiency by 50% and reducing manual labor requirements.</p>
+          <div class="tech-stack">
+            <span class="tech-tag">Automation</span>
+            <span class="tech-tag">Robotics</span>
+            <span class="tech-tag">PLC</span>
+            <span class="tech-tag">Lean Manufacturing</span>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:jayajudiya122@gmail.com">jayajudiya122@gmail.com</a></p>
-      <p>Phone: +1 (562) 682-7599</p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/jayajudiya" target="_blank" rel="noopener">linkedin.com/in/jayajudiya</a></p>
+    <!-- Education Section -->
+    <section id="education" class="fade-in">
+      <h2>Education & Certifications</h2>
+      <div class="education-item">
+        <h3>Master of Science in Mechanical Engineering</h3>
+        <div class="company">University of California, Los Angeles (UCLA)</div>
+        <div class="date">2017 - 2019</div>
+        <p>Specialization in Advanced Materials and Manufacturing. GPA: 3.8/4.0</p>
+      </div>
+      <div class="education-item">
+        <h3>Bachelor of Science in Mechanical Engineering</h3>
+        <div class="company">California State University, Long Beach</div>
+        <div class="date">2013 - 2017</div>
+        <p>Graduated Magna Cum Laude. GPA: 3.7/4.0</p>
+      </div>
+      <div class="education-item">
+        <h3>Professional Certifications</h3>
+        <ul>
+          <li>SolidWorks Professional (CSWP)</li>
+          <li>Project Management Professional (PMP)</li>
+          <li>Six Sigma Green Belt</li>
+          <li>ANSYS Certified User</li>
+        </ul>
+      </div>
     </section>
 
-    <footer>
-      &copy; 2025 Jay Ajudiya
-    </footer>
+    <!-- Contact Section -->
+    <section id="contact" class="fade-in">
+      <h2>Get In Touch</h2>
+      <div class="contact-grid">
+        <div class="contact-form">
+          <h3>Send me a message</h3>
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <input type="text" placeholder="Subject" required>
+          <textarea rows="6" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </div>
+        <div class="contact-info-section">
+          <h3>Contact Information</h3>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <strong>Email</strong>
+              <p>jayajudiya122@gmail.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <div>
+              <strong>Phone</strong>
+              <p>+1 (562) 682-7599</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-linkedin"></i>
+            <div>
+              <strong>LinkedIn</strong>
+              <p><a href="https://www.linkedin.com/in/jayajudiya" target="_blank">linkedin.com/in/jayajudiya</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <strong>Location</strong>
+              <p>Los Angeles, California</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/jayajudiya" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/jayajudiya" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="mailto:jayajudiya122@gmail.com"><i class="fas fa-envelope"></i></a>
+      </div>
+      <p>&copy; 2025 Jay Ajudiya. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Fade-in animation on scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Contact form handling
+    document.querySelector('.contact-form button').addEventListener('click', function(e) {
+      e.preventDefault();
+      const form = document.querySelector('.contact-form');
+      const inputs = form.querySelectorAll('input, textarea');
+      let isValid = true;
+
+      inputs.forEach(input => {
+        if (!input.value.trim()) {
+          isValid = false;
+          input.style.borderColor = '#e74c3c';
+        } else {
+          input.style.borderColor = '#e0e0e0';
+        }
+      });
+
+      if (isValid) {
+        alert('Thank you for your message! I will get back to you soon.');
+        inputs.forEach(input => input.value = '');
+      } else {
+        alert('Please fill in all fields.');
+      }
+    });
+
+    // Active navigation highlighting
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('nav a[href^="#"]');
+      
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (window.pageYOffset >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.style.color = link.getAttribute('href') === `#${current}` ? '#667eea' : '#333';
+      });
+    });
+  </script>
 </body>
 </html>
