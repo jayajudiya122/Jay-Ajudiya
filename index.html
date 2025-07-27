@@ -5,415 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jay Ajudiya | Mechanical Design Engineer</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  <style>
-    /* Reset */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: #333;
-      line-height: 1.6;
-      min-height: 100vh;
-    }
-
-    /* Navigation */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-      z-index: 1000;
-      padding: 1rem 0;
-    }
-
-    nav ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      gap: 2rem;
-    }
-
-    nav a {
-      color: #333;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    nav a:hover {
-      color: #667eea;
-    }
-
-    /* Container */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* Header */
-    header {
-      text-align: center;
-      padding: 120px 0 80px;
-      color: white;
-    }
-
-    .profile-img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 4px solid white;
-      margin: 0 auto 20px;
-      background: #f0f0f0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      color: #667eea;
-    }
-
-    header h1 {
-      font-size: 3.5rem;
-      margin-bottom: 10px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    }
-
-    header .title {
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-      opacity: 0.9;
-    }
-
-    header .contact-info {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-
-    header .contact-info div {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    /* Sections */
-    section {
-      background: white;
-      margin: 2rem 0;
-      padding: 3rem 2rem;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-
-    h2 {
-      color: #667eea;
-      font-size: 2.2rem;
-      margin-bottom: 2rem;
-      text-align: center;
-      position: relative;
-    }
-
-    h2::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 3px;
-      background: #667eea;
-      margin: 10px auto;
-      border-radius: 2px;
-    }
-
-    /* About Section */
-    .about-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .about-text {
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-    }
-
-    .skill-item {
-      background: #f8f9fa;
-      padding: 1rem;
-      border-radius: 8px;
-      text-align: center;
-      border-left: 4px solid #667eea;
-    }
-
-    .skill-item i {
-      font-size: 2rem;
-      color: #667eea;
-      margin-bottom: 10px;
-    }
-
-    /* Experience Timeline */
-    .timeline {
-      position: relative;
-      padding-left: 2rem;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: #667eea;
-    }
-
-    .timeline-item {
-      position: relative;
-      margin-bottom: 2rem;
-      background: #f8f9fa;
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin-left: 1rem;
-    }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -1.5rem;
-      top: 1.5rem;
-      width: 12px;
-      height: 12px;
-      background: #667eea;
-      border-radius: 50%;
-      border: 3px solid white;
-    }
-
-    .timeline-item h3 {
-      color: #667eea;
-      margin-bottom: 5px;
-    }
-
-    .timeline-item .company {
-      font-weight: bold;
-      color: #555;
-    }
-
-    .timeline-item .date {
-      color: #888;
-      font-size: 0.9rem;
-      margin-bottom: 10px;
-    }
-
-    /* Projects Grid */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .project-card {
-      background: #f8f9fa;
-      padding: 2rem;
-      border-radius: 12px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border-top: 4px solid #667eea;
-    }
-
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-    }
-
-    .project-card h3 {
-      color: #667eea;
-      margin-bottom: 15px;
-      font-size: 1.3rem;
-    }
-
-    .project-card .tech-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 15px;
-    }
-
-    .tech-tag {
-      background: #667eea;
-      color: white;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-    }
-
-    /* Education */
-    .education-item {
-      background: #f8f9fa;
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      border-left: 4px solid #667eea;
-    }
-
-    .education-item h3 {
-      color: #667eea;
-      margin-bottom: 5px;
-    }
-
-    /* Contact Form */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-    }
-
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      padding: 12px;
-      border: 2px solid #e0e0e0;
-      border-radius: 8px;
-      font-family: inherit;
-      transition: border-color 0.3s ease;
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      border-color: #667eea;
-    }
-
-    .contact-form button {
-      background: #667eea;
-      color: white;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: background 0.3s ease;
-    }
-
-    .contact-form button:hover {
-      background: #5a6fd8;
-    }
-
-    .contact-info-section {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem;
-      background: #f8f9fa;
-      border-radius: 8px;
-    }
-
-    .contact-item i {
-      color: #667eea;
-      font-size: 1.5rem;
-      width: 30px;
-    }
-
-    /* Footer */
-    footer {
-      background: #333;
-      color: white;
-      text-align: center;
-      padding: 2rem 0;
-      margin-top: 3rem;
-    }
-
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .social-links a {
-      color: white;
-      font-size: 1.5rem;
-      transition: color 0.3s ease;
-    }
-
-    .social-links a:hover {
-      color: #667eea;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      header h1 {
-        font-size: 2.5rem;
-      }
-
-      header .contact-info {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .about-content,
-      .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-
-      section {
-        padding: 2rem 1rem;
-      }
-
-      .container {
-        padding: 0 10px;
-      }
-    }
-
-    /* Animations */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
+  <link href="styles.css" rel="stylesheet">
 </head>
 <body>
   <!-- Navigation -->
-  <nav>
+  <nav id="navbar">
     <ul>
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
@@ -428,7 +24,7 @@
   <header id="home">
     <div class="container">
       <div class="profile-img">
-        <i class="fas fa-user"></i>
+        <img src="images/profile-placeholder.svg" alt="Jay Ajudiya" class="profile-image">
       </div>
       <h1>Jay Ajudiya</h1>
       <p class="title">Mechanical Design Engineer</p>
@@ -465,27 +61,83 @@
             problem-solving, and collaborative teamwork. I'm committed to continuous learning and staying 
             at the forefront of engineering technology.
           </p>
+          
+          <!-- Skills Progress Bars -->
+          <div class="skills-progress">
+            <h4>Technical Proficiency</h4>
+            <div class="skill-bar">
+              <div class="skill-name">SolidWorks</div>
+              <div class="progress-bar">
+                <div class="progress" data-progress="95"></div>
+              </div>
+              <span class="skill-percentage">95%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-name">ANSYS/FEA</div>
+              <div class="progress-bar">
+                <div class="progress" data-progress="90"></div>
+              </div>
+              <span class="skill-percentage">90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-name">MATLAB</div>
+              <div class="progress-bar">
+                <div class="progress" data-progress="85"></div>
+              </div>
+              <span class="skill-percentage">85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-name">AutoCAD</div>
+              <div class="progress-bar">
+                <div class="progress" data-progress="88"></div>
+              </div>
+              <span class="skill-percentage">88%</span>
+            </div>
+          </div>
         </div>
-        <div class="skills-grid">
-          <div class="skill-item">
-            <i class="fas fa-drafting-compass"></i>
-            <h4>CAD Design</h4>
-            <p>SolidWorks, AutoCAD, CATIA</p>
+        
+        <div class="skills-visual">
+          <div class="skills-grid">
+            <div class="skill-item">
+              <i class="fas fa-drafting-compass"></i>
+              <h4>CAD Design</h4>
+              <p>SolidWorks, AutoCAD, CATIA</p>
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-calculator"></i>
+              <h4>Analysis</h4>
+              <p>FEA, CFD, MATLAB</p>
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-cogs"></i>
+              <h4>Manufacturing</h4>
+              <p>DFM, Prototyping, Testing</p>
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-project-diagram"></i>
+              <h4>Project Management</h4>
+              <p>Agile, Team Leadership</p>
+            </div>
           </div>
-          <div class="skill-item">
-            <i class="fas fa-calculator"></i>
-            <h4>Analysis</h4>
-            <p>FEA, CFD, MATLAB</p>
-          </div>
-          <div class="skill-item">
-            <i class="fas fa-cogs"></i>
-            <h4>Manufacturing</h4>
-            <p>DFM, Prototyping, Testing</p>
-          </div>
-          <div class="skill-item">
-            <i class="fas fa-project-diagram"></i>
-            <h4>Project Management</h4>
-            <p>Agile, Team Leadership</p>
+          
+          <!-- Achievement Stats -->
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-number" data-target="3">0</div>
+              <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-target="15">0</div>
+              <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-target="25">0</div>
+              <div class="stat-label">Weight Reduction %</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number" data-target="2.3">0</div>
+              <div class="stat-label">Million $ Saved</div>
+            </div>
           </div>
         </div>
       </div>
@@ -535,9 +187,22 @@
     <section id="projects" class="fade-in">
       <h2>Featured Projects</h2>
       <div class="projects-grid">
-        <div class="project-card">
+        <div class="project-card" data-project="ev-chassis">
+          <div class="project-image">
+            <img src="images/projects/ev-chassis.svg" alt="EV Chassis Design">
+          </div>
           <h3>Electric Vehicle Chassis Redesign</h3>
           <p>Complete redesign of EV chassis structure using advanced materials and topology optimization. Achieved 25% weight reduction while improving crash safety ratings.</p>
+          <div class="project-metrics">
+            <div class="metric">
+              <span class="metric-value">25%</span>
+              <span class="metric-label">Weight Reduction</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">15%</span>
+              <span class="metric-label">Strength Increase</span>
+            </div>
+          </div>
           <div class="tech-stack">
             <span class="tech-tag">SolidWorks</span>
             <span class="tech-tag">ANSYS</span>
@@ -545,9 +210,23 @@
             <span class="tech-tag">FEA</span>
           </div>
         </div>
-        <div class="project-card">
+        
+        <div class="project-card" data-project="suspension">
+          <div class="project-image">
+            <img src="images/projects/suspension.svg" alt="Adaptive Suspension System">
+          </div>
           <h3>Adaptive Suspension System</h3>
           <p>Developed an intelligent suspension system that adapts to road conditions in real-time. Improved ride comfort by 40% and reduced wear by 30%.</p>
+          <div class="project-metrics">
+            <div class="metric">
+              <span class="metric-value">40%</span>
+              <span class="metric-label">Comfort Improvement</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">30%</span>
+              <span class="metric-label">Wear Reduction</span>
+            </div>
+          </div>
           <div class="tech-stack">
             <span class="tech-tag">CATIA</span>
             <span class="tech-tag">MATLAB</span>
@@ -555,9 +234,23 @@
             <span class="tech-tag">Sensors</span>
           </div>
         </div>
-        <div class="project-card">
+        
+        <div class="project-card" data-project="seat-frame">
+          <div class="project-image">
+            <img src="images/projects/seat-frame.svg" alt="Lightweight Seat Frame">
+          </div>
           <h3>Lightweight Seat Frame</h3>
           <p>Redesigned automotive seat frame using topology optimization and advanced manufacturing techniques. Reduced weight by 35% while maintaining safety standards.</p>
+          <div class="project-metrics">
+            <div class="metric">
+              <span class="metric-value">35%</span>
+              <span class="metric-label">Weight Reduction</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">100%</span>
+              <span class="metric-label">Safety Maintained</span>
+            </div>
+          </div>
           <div class="tech-stack">
             <span class="tech-tag">Topology Optimization</span>
             <span class="tech-tag">3D Printing</span>
@@ -565,9 +258,23 @@
             <span class="tech-tag">Testing</span>
           </div>
         </div>
-        <div class="project-card">
+        
+        <div class="project-card" data-project="assembly">
+          <div class="project-image">
+            <img src="images/projects/assembly-line.svg" alt="Automated Assembly Line">
+          </div>
           <h3>Automated Assembly Line</h3>
           <p>Designed mechanical components for automated assembly line improving production efficiency by 50% and reducing manual labor requirements.</p>
+          <div class="project-metrics">
+            <div class="metric">
+              <span class="metric-value">50%</span>
+              <span class="metric-label">Efficiency Increase</span>
+            </div>
+            <div class="metric">
+              <span class="metric-value">60%</span>
+              <span class="metric-label">Labor Reduction</span>
+            </div>
+          </div>
           <div class="tech-stack">
             <span class="tech-tag">Automation</span>
             <span class="tech-tag">Robotics</span>
@@ -595,12 +302,24 @@
       </div>
       <div class="education-item">
         <h3>Professional Certifications</h3>
-        <ul>
-          <li>SolidWorks Professional (CSWP)</li>
-          <li>Project Management Professional (PMP)</li>
-          <li>Six Sigma Green Belt</li>
-          <li>ANSYS Certified User</li>
-        </ul>
+        <div class="certifications-grid">
+          <div class="cert-item">
+            <i class="fas fa-medal"></i>
+            <span>SolidWorks Professional (CSWP)</span>
+          </div>
+          <div class="cert-item">
+            <i class="fas fa-project-diagram"></i>
+            <span>Project Management Professional (PMP)</span>
+          </div>
+          <div class="cert-item">
+            <i class="fas fa-chart-line"></i>
+            <span>Six Sigma Green Belt</span>
+          </div>
+          <div class="cert-item">
+            <i class="fas fa-calculator"></i>
+            <span>ANSYS Certified User</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -610,11 +329,16 @@
       <div class="contact-grid">
         <div class="contact-form">
           <h3>Send me a message</h3>
-          <input type="text" placeholder="Your Name" required>
-          <input type="email" placeholder="Your Email" required>
-          <input type="text" placeholder="Subject" required>
-          <textarea rows="6" placeholder="Your Message" required></textarea>
-          <button type="submit">Send Message</button>
+          <form id="contactForm">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="subject" placeholder="Subject" required>
+            <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+            <button type="submit">
+              <span class="button-text">Send Message</span>
+              <span class="loading hidden"><i class="fas fa-spinner fa-spin"></i></span>
+            </button>
+          </form>
         </div>
         <div class="contact-info-section">
           <h3>Contact Information</h3>
@@ -622,14 +346,14 @@
             <i class="fas fa-envelope"></i>
             <div>
               <strong>Email</strong>
-              <p>jayajudiya122@gmail.com</p>
+              <p><a href="mailto:jayajudiya122@gmail.com">jayajudiya122@gmail.com</a></p>
             </div>
           </div>
           <div class="contact-item">
             <i class="fas fa-phone"></i>
             <div>
               <strong>Phone</strong>
-              <p>+1 (562) 682-7599</p>
+              <p><a href="tel:+15626827599">+1 (562) 682-7599</a></p>
             </div>
           </div>
           <div class="contact-item">
@@ -646,6 +370,14 @@
               <p>Los Angeles, California</p>
             </div>
           </div>
+          
+          <!-- Download Resume Button -->
+          <div class="resume-download">
+            <a href="#" class="download-btn" onclick="window.print()">
+              <i class="fas fa-download"></i>
+              Download Resume
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -655,15 +387,44 @@
   <footer>
     <div class="container">
       <div class="social-links">
-        <a href="https://www.linkedin.com/in/jayajudiya" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/jayajudiya" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="mailto:jayajudiya122@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/jayajudiya" target="_blank" title="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/jayajudiya" target="_blank" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:jayajudiya122@gmail.com" title="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="tel:+15626827599" title="Phone">
+          <i class="fas fa-phone"></i>
+        </a>
       </div>
       <p>&copy; 2025 Jay Ajudiya. All rights reserved.</p>
     </div>
   </footer>
 
+  <!-- Scroll to Top Button -->
+  <button class="scroll-top" id="scrollTop">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- Project Modal -->
+  <div class="modal" id="projectModal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="modal-body">
+        <img id="modalImage" src="" alt="">
+        <h3 id="modalTitle"></h3>
+        <p id="modalDescription"></p>
+        <div id="modalTechStack"></div>
+      </div>
+    </div>
+  </div>
+
   <script>
+    // Enhanced JavaScript with visual interactions
+    
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
@@ -678,6 +439,16 @@
       });
     });
 
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 100) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
     // Fade-in animation on scroll
     const observerOptions = {
       threshold: 0.1,
@@ -688,6 +459,16 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
+          
+          // Animate progress bars when visible
+          if (entry.target.querySelector('.skills-progress')) {
+            animateProgressBars();
+          }
+          
+          // Animate stats when visible
+          if (entry.target.querySelector('.stats-grid')) {
+            animateStats();
+          }
         }
       });
     }, observerOptions);
@@ -696,28 +477,59 @@
       observer.observe(el);
     });
 
-    // Contact form handling
-    document.querySelector('.contact-form button').addEventListener('click', function(e) {
-      e.preventDefault();
-      const form = document.querySelector('.contact-form');
-      const inputs = form.querySelectorAll('input, textarea');
-      let isValid = true;
-
-      inputs.forEach(input => {
-        if (!input.value.trim()) {
-          isValid = false;
-          input.style.borderColor = '#e74c3c';
-        } else {
-          input.style.borderColor = '#e0e0e0';
-        }
+    // Animate progress bars
+    function animateProgressBars() {
+      const progressBars = document.querySelectorAll('.progress');
+      progressBars.forEach(bar => {
+        const progress = bar.getAttribute('data-progress');
+        setTimeout(() => {
+          bar.style.width = progress + '%';
+        }, 500);
       });
+    }
 
-      if (isValid) {
+    // Animate statistics
+    function animateStats() {
+      const statNumbers = document.querySelectorAll('.stat-number');
+      statNumbers.forEach(stat => {
+        const target = parseFloat(stat.getAttribute('data-target'));
+        const increment = target / 100;
+        let current = 0;
+        
+        const updateStat = () => {
+          current += increment;
+          if (current < target) {
+            stat.textContent = Math.floor(current);
+            setTimeout(updateStat, 20);
+          } else {
+            stat.textContent = target % 1 === 0 ? target : target.toFixed(1);
+          }
+        };
+        
+        setTimeout(updateStat, 1000);
+      });
+    }
+
+    // Contact form handling
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const button = this.querySelector('button[type="submit"]');
+      const buttonText = button.querySelector('.button-text');
+      const loading = button.querySelector('.loading');
+      
+      // Show loading state
+      buttonText.classList.add('hidden');
+      loading.classList.remove('hidden');
+      
+      // Simulate form submission
+      setTimeout(() => {
         alert('Thank you for your message! I will get back to you soon.');
-        inputs.forEach(input => input.value = '');
-      } else {
-        alert('Please fill in all fields.');
-      }
+        this.reset();
+        
+        // Reset button state
+        buttonText.classList.remove('hidden');
+        loading.classList.add('hidden');
+      }, 2000);
     });
 
     // Active navigation highlighting
@@ -734,8 +546,78 @@
       });
 
       navLinks.forEach(link => {
-        link.style.color = link.getAttribute('href') === `#${current}` ? '#667eea' : '#333';
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
       });
+    });
+
+    // Scroll to top button
+    const scrollTopBtn = document.getElementById('scrollTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Project modal functionality
+    const modal = document.getElementById('projectModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalTechStack = document.getElementById('modalTechStack');
+    const closeModal = document.querySelector('.close');
+
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const project = card.getAttribute('data-project');
+        const title = card.querySelector('h3').textContent;
+        const description = card.querySelector('p').textContent;
+        const techTags = card.querySelectorAll('.tech-tag');
+        
+        modalImage.src = `images/projects/${project}.svg`;
+        modalImage.alt = title;
+        modalTitle.textContent = title;
+        modalDescription.textContent = description;
+        
+        modalTechStack.innerHTML = '';
+        techTags.forEach(tag => {
+          const newTag = tag.cloneNode(true);
+          modalTechStack.appendChild(newTag);
+        });
+        
+        modal.style.display = 'block';
+      });
+    });
+
+    closeModal.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    // Add parallax effect to header
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const header = document.querySelector('header');
+      if (header) {
+        header.style.transform = `translateY(${scrolled * 0.5}px)`;
+      }
     });
   </script>
 </body>
