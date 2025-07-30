@@ -1108,28 +1108,4 @@ footer {
 }
 
 
-.profile-image-wrapper {
-  width: 250px;
-  height: 250px;
-  margin: 0 auto 30px;
-  border-radius: 50%;
-  background: url('images/20250729_1858_Futuristic Engineering Workspace_simple_compose_01k1cgp2x0fv5rc7tge4f6prsb.png') no-repeat center center;
-  background-size: cover;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  overflow: hidden;
-}
 
-.profile-img {
-  width: 150px;
-  height: 150px;
-  background: rgba(255, 255, 255, 0.85); /* slight contrast */
-  border-radius: 50%;
-  padding: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
