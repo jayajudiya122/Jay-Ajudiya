@@ -6,13 +6,13 @@
 }
 
 html {
-  scroll-behavior: very smooth;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 background: linear-gradient(135deg, #bdc3c7 0%, #2c3e50 100%);
-  color: #b3e5fc;
+  color: #cccccc;
   line-height: 1.6;
   min-height: 100vh;
 }
